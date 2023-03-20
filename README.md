@@ -47,3 +47,24 @@ If not found, it will try to read the API key from the configuration file locate
 If the API key is not found in either of these locations, the user must provide it using the `-a` or `--api-key` option.
 If the `--keep-phone-home` option is not specified, the script will remove the 'delete system phone-home' command 
 from the configuration before pushing it to the devices.
+
+To store your Mist API key in a `config.ini` file, follow these steps:
+
+1. Create a new directory for your Mist configuration, if it doesn't exist:
+```bash
+mkdir -p ~/.mist
+```
+2. Create a config.ini file in the ~/.mist directory:
+
+```bash
+touch ~/.mist/config.ini
+```
+3. Open config.ini in a text editor and add the following content:
+
+```ini
+[Mist]
+api_key = YOUR_MIST_API_KEY
+Replace YOUR_MIST_API_KEY with your actual Mist API key.
+```
+4. Save the file and close the text editor.
+
