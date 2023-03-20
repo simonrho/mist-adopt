@@ -68,3 +68,21 @@ Replace YOUR_MIST_API_KEY with your actual Mist API key.
 ```
 4. Save the file and close the text editor.
 
+To create an example Excel file for the script, you can use the following format. Your Excel file should have a header row followed by rows containing the device information. Make sure the header names match the field names expected by the script (org_id, site_id, ip, user_id, and password).
+
+Example:
+
+| org_id       | site_id      | ip          | user_id | password |
+|--------------|--------------|-------------|---------|----------|
+| org-1234abcd | site-5678efgh | 192.168.1.2 | admin   | p@ssw0rd |
+| org-1234abcd | site-5678efgh | 192.168.1.3 | admin   | p@ssw0rd |
+| org-1234abcd | site-5678efgh | 192.168.1.4 | admin   | p@ssw0rd |
+
+To create this example file using Microsoft Excel, LibreOffice Calc, or any other spreadsheet software:
+
+1. Open your preferred spreadsheet software.
+2. Create a new spreadsheet.
+3. Add the headers (org_id, site_id, ip, user_id, and password) to the first row.
+4. Add the device information in the subsequent rows, using the example format shown above.
+5. Save the file as an Excel file (.xlsx).
+Now you have an example Excel file that can be used with the script. Remember to replace the example values with your actual device information.
