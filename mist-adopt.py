@@ -1,11 +1,37 @@
 #!/usr/bin/env python3
 import argparse
 import configparser
-import os
 import pandas as pd
 import requests
+import numpy as np
+from tabulate import tabulate
+import sys
+import os
+
 from ncclient import manager
 import concurrent.futures
+
+
+
+def dump_excel_file(file_name):
+    try:
+        # Read the Excel file
+        df = pd.read_excel(file_name)
+
+        # Mask password fields with asterisks
+        for col in df.columns:
+            if 'password' in col.lower():
+                df[col] = df[col].apply(lambda x: len(str(x)) * '*')
+
+        # Replace empty cells with "Empty"
+        df.replace(np.nan, 'Empty', inplace=True)
+
+        # Print the data in a table format
+        print(tabulate(df, headers='keys', tablefmt='psql'))
+
+    except FileNotFoundError:
+        print(f"Error: file {file_name} not found")
+        sys.exit(1)
 
 
 def read_excel(file_name):
@@ -102,6 +128,8 @@ def main():
     parser.add_argument("-a", "--api-key", help="Mist API key (optional)")
 
     args = parser.parse_args()
+
+    dump_excel_file(args.excel_file)
 
     try:
         device_data = read_excel(args.excel_file)
